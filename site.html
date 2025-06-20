@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boutique en ligne simple</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+  background-image:url('htttp://192.168.11.100:8080/1920%20x%201080%20HD%20Wallpapers%20464.jpg');}
+
+
+    padding: 20px;
+  }
+  h1 {
+    text-align: centre;
+
+    
+  }
+  #products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .product {
+    background: black ;
+
+    background-image:url('htttp://192.168.11.100:8080/1920%20x%201080%20HD%20Wallpapers%20464.jpg');
+
+
+
+}
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+border: 1px solid #ddd;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  }
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+  video {
+    width: 100%;
+    height: auto;
+  }
+  .price {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<span style="color:white;"><h1>BIENVENUE CHEZ .....</h1></span>
+
+<span style="color: white;"
+<div>
+  <button onclick="sortByPrice()">Trier par prix</button>
+</div>
+
+<div id="products">
+  <!-- Les produits seront insérés ici par JavaScript -->
+</div>
+</span>
+<script>
+  // Liste des produits
+  const products = [
+    {
+      name:"samsung",
+      description: "1to de memoire interne + 64gb de ram",
+      price: 50,
+      image: "http://192.168.11.100:8080/1675414208531.jpg?text=La vie n'est pas compliqué , c'est nous nous la rendons compliqué",
+      video: "http://192.168.11.100:8080/50_Cent_-_Amusement_Park__Official_Music_Video_(720p).mp4"
+    },
+    {
+      name: "Produit 2",
+      description: "Description du produit 2",
+      price: 150000,
+      image: "https://via.placeholder.com/300x200.png?text=Produit+2",
+      video: "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      name: "Produit 3",
+      description: "Description du produit 3",
+      price: 70,
+      image: "https://via.placeholder.com/300x200.png?text=Produit+3",
+      video: "https://www.w3schools.com/html/mov_bbb.mp4"
+    }
+  ];
+
+  // Fonction pour afficher les produits
+function displayProducts(productList) {
+  const container = document.getElementById('products');
+  container.innerHTML = ''; // Vider le contenu existant
+
+  productList.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.className = 'product';
+
+    // Ajouter le nom
+    const nameEl = document.createElement('h2');
+    nameEl.textContent = product.name;
+    productDiv.appendChild(nameEl);
+
+    // Ajouter l'image
+    const imgEl = document.createElement('img');
+    imgEl.src = product.image;
+    imgEl.alt = product.name;
+    productDiv.appendChild(imgEl);
+
+    // Ajouter la vidéo
+    const videoEl = document.createElement('video');
+    videoEl.src = product.video;
+    videoEl.controls = true;
+    productDiv.appendChild(videoEl);
+
+    // Ajouter la description
+    const descEl = document.createElement('p');
+    descEl.textContent = product.description;
+    productDiv.appendChild(descEl);
+
+    // Ajouter le prix
+    const priceEl = document.createElement('p');
+    priceEl.className = 'price';
+    priceEl.textContent = 'Prix: ' + product.price + ' XOF';
+    productDiv.appendChild(priceEl);
+
+    container.appendChild(productDiv);
+  });
+}
+
+// Fonction pour trier par prix
+function sortByPrice() {
+  products.sort((a, b) => a.price - b.price);
+  displayProducts(products);
+}
+
+// Afficher les produits lors du chargement
+window.onload = () => {
+  displayProducts(products);
+};
+</script>
+
+</body>
+</html>
